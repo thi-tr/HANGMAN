@@ -38,10 +38,10 @@ let updatePage = function(){
 let guessLetter = function(){
     let input = document.getElementById("guess");
     let letter = input.value;
+    letter = letter.toLowerCase();
     if(word.indexOf(letter) < 0){
         guessCount--;
     }
-    letter = letter.toLowerCase();
     guesses += letter;
     updatePage();
 }
