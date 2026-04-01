@@ -6,7 +6,9 @@
     <title>Hangman!</title>
 </head>
 <body>
-    <div><img src="images/hangman6.gif" alt="Hangman Image"></div>
+    <div>
+        <img id="hangmanpic" src="images/hangman6.gif" alt="Hangman Image">
+    </div>
     <div id="clue">Press New game to Play!</div>
 
     <div>
@@ -14,6 +16,8 @@
         <button onclick="guessLetter();">Guess</button>
     </div>
     <div id="guesses"></div>
-    <div id="newgamearea"><button onclick="newGame();">New Game</button></div>
+    <div id="newgamearea">
+        <button onclick="newGame();">New Game</button>
+    </div>
 </body>
 </html>
