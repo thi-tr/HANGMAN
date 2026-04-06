@@ -33,6 +33,11 @@ let updatePage = function(){
     let image = document.getElementById("hangmanpic");
     image.src = `images/hangman${guessCount}.gif`
 
+    if(guessCount === 0){
+        guessArea.textContent = "YOU LOST!!!"; //user lost if guesses are used up
+    }else if(clueString.indexOf("_") < 0){
+        guessArea.textContent = "YOU WIN!!!"; //user win if blanks are all filled
+    }
 }
 
 let guessLetter = function(){
