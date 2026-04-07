@@ -3,9 +3,11 @@ const POSSIBLE_WORDS = ["obdurate", "verisimilitude",
 var word = "";
 var guesses = ""; //this will be all the guesses
 var guessCount;
+var gameEnd = false; //tracks if game finished or not
 const MAX_GUESSES = 6;
 
 let newGame = function(){
+    gameEnd = false; 
     //Pick a random word
     guessCount = MAX_GUESSES;
     let randomIndex = parseInt(Math.random()*POSSIBLE_WORDS.length);
@@ -35,8 +37,10 @@ let updatePage = function(){
 
     if(guessCount === 0){
         guessArea.textContent = "YOU LOST!!!"; //user lost if guesses are used up
+        gameEnd = true;
     }else if(clueString.indexOf("_") < 0){
         guessArea.textContent = "YOU WIN!!!"; //user win if blanks are all filled
+        gameEnd = true;
     }
 }
 
@@ -44,6 +48,10 @@ let guessLetter = function(){
     let input = document.getElementById("guess");
     let letter = input.value;
     letter = letter.toLowerCase();
+
+    if(gameEnd === true){ //game finished, no more guesses
+        letter = "";
+    }
     if(word.indexOf(letter) < 0){
         guessCount--;
     }
