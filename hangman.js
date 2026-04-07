@@ -49,7 +49,8 @@ let guessLetter = function(){
     let letter = input.value;
     letter = letter.toLowerCase();
 
-    if(gameEnd === true){ //game finished, no more guesses
+    if(gameEnd === true || guesses.indexOf(letter) >=0){ 
+        //game finished, prevent same letter guess
         letter = "";
     }
     if(word.indexOf(letter) < 0){
