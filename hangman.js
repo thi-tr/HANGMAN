@@ -38,7 +38,7 @@ let updatePage = function(){
     if(guessCount === 0){
         guessArea.textContent = "YOU LOST!!!"; //user lost if guesses are used up
         gameEnd = true;
-    }else if(clueString.indexOf("_") < 0){
+    }else if(word.length > 0 && clueString.indexOf("_") < 0){
         guessArea.textContent = "YOU WIN!!!"; //user win if blanks are all filled
         gameEnd = true;
     }
@@ -52,7 +52,11 @@ let guessLetter = function(){
     if(gameEnd === true || guesses.indexOf(letter) >=0){ 
         //game finished, prevent same letter guess
         letter = "";
+    }else if(word ===""){
+        //word blank
+        return;
     }
+
     if(word.indexOf(letter) < 0){
         guessCount--;
     }
